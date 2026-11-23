@@ -14,16 +14,46 @@ a{color:#0E7A3F}a:hover{color:#0B3B2E}
 summary{cursor:pointer}
 </style>
 <style>html{scroll-behavior:smooth}img{max-width:100%}</style>
+
+<style>
+.mt-header{background:#0B3B2E;color:#FFFFFF;font-family:'Manrope',system-ui,sans-serif;position:relative;z-index:50}
+.mt-bar{max-width:1360px;margin:0 auto;padding:16px clamp(16px,3vw,40px);display:flex;align-items:center;justify-content:space-between;gap:12px 24px}
+.mt-logo{display:flex;align-items:center;text-decoration:none}
+.mt-logo img{display:block;height:44px;width:auto}
+.mt-menu{display:flex;align-items:center;gap:24px}
+.mt-nav{display:flex;gap:4px 18px;font-size:14.5px;font-weight:600}
+.mt-nav a{color:#D7E6DE;text-decoration:none;padding:10px 0}
+.mt-nav a:hover,.mt-nav a[aria-current="page"]{color:#FFFFFF}
+.mt-cta{background:#C6F04B;color:#0B3B2E;text-decoration:none;font-weight:700;font-size:14.5px;padding:12px 20px;border-radius:999px;white-space:nowrap}
+.mt-toggle{display:none;align-items:center;justify-content:center;width:48px;height:48px;border:1.5px solid #4E7A6B;border-radius:12px;background:transparent;color:#FFFFFF;cursor:pointer;padding:0}
+.mt-toggle .x{display:none}
+.mt-header.open .mt-toggle .bars{display:none}
+.mt-header.open .mt-toggle .x{display:block}
+@media (max-width:1320px){
+ .mt-toggle{display:flex}
+ .mt-logo img{height:38px}
+ .mt-menu{display:none;position:absolute;left:0;right:0;top:100%;background:#0B3B2E;border-top:1px solid #2C5A4B;flex-direction:column;align-items:stretch;gap:0;padding:8px clamp(16px,3vw,40px) 24px;box-shadow:0 18px 30px rgba(0,0,0,.25)}
+ .mt-header.open .mt-menu{display:flex}
+ .mt-nav{flex-direction:column;gap:0;font-size:18px}
+ .mt-nav a{padding:15px 0;border-bottom:1px solid #2C5A4B}
+ .mt-cta{margin-top:20px;text-align:center;font-size:16px;padding:16px 20px}
+}
+</style>
+
 </head>
 <body>
 <div style="font-family: 'Manrope', system-ui, sans-serif; color: #10201A; background: #F7F6F1; width: 100%">
-<header style="background: #0B3B2E; color: #FFFFFF; font-family: 'Manrope', system-ui, sans-serif; width: 100%">
-<div style="max-width: 1360px; margin: 0 auto; padding: 16px clamp(16px, 3vw, 40px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px">
-<a href="index.html" aria-label="MT Consult — página inicial" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #FFFFFF">
-<img src="assets/logo-mtconsult-negativo.png" alt="MT Consult — Planejamento &amp; Consultoria" style="display: block; height: 44px; width: auto">
-</a>
-<nav aria-label="Menu principal" style="display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 14.5px; font-weight: 600; background-color: #0b3b2e; border-radius: 0px"><a href="index.html" style="color: rgb(255, 255, 255); text-decoration: none; padding: 10px 0px">Início</a><a href="incentivos-fiscais.html" style="color: rgb(215, 230, 222); text-decoration: none; padding: 10px 0px">Incentivos Fiscais</a><a href="projetos-de-viabilidade.html" style="color: rgb(215, 230, 222); text-decoration: none; padding: 10px 0px">Projetos de Viabilidade</a><a href="captacao-de-recursos.html" style="color: rgb(215, 230, 222); text-decoration: none; padding: 10px 0px">Captação de Recursos</a><a href="zpe-caceres.html" style="color: rgb(215, 230, 222); text-decoration: none; padding: 10px 0px">ZPE Cáceres</a><a href="sudam.html" style="color: rgb(215, 230, 222); text-decoration: none; padding: 10px 0px">SUDAM</a><a href="institucional.html" style="color: rgb(215, 230, 222); text-decoration: none; padding: 10px 0px">Institucional</a></nav>
-<a href="institucional.html" style="background: #C6F04B; color: #0B3B2E; text-decoration: none; font-weight: 700; font-size: 14.5px; padding: 12px 20px; border-radius: 999px; white-space: nowrap">Agendar diagnóstico</a>
+<header class="mt-header">
+<div class="mt-bar">
+<a class="mt-logo" href="index.html" aria-label="MT Consult — página inicial"><img src="assets/logo-mtconsult-negativo.png" alt="MT Consult — Planejamento &amp; Consultoria" style="display: block; height: 44px; width: auto"></a>
+<button class="mt-toggle" type="button" aria-expanded="false" aria-controls="mt-menu" aria-label="Abrir menu">
+<svg class="bars" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+<svg class="x" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+</button>
+<div class="mt-menu" id="mt-menu">
+<nav class="mt-nav" aria-label="Menu principal"><a href="index.html">Início</a><a href="incentivos-fiscais.html">Incentivos Fiscais</a><a href="projetos-de-viabilidade.html">Projetos de Viabilidade</a><a href="captacao-de-recursos.html" aria-current="page">Captação de Recursos</a><a href="zpe-caceres.html">ZPE Cáceres</a><a href="sudam.html">SUDAM</a><a href="institucional.html">Institucional</a></nav>
+<a class="mt-cta" href="institucional.html">Atendimento</a>
+</div>
 </div>
 </header>
 
@@ -159,5 +189,13 @@ summary{cursor:pointer}
 <div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 48px) 32px; font-size: 13px; color: #9DB5A8">Informações sobre normas e linhas de crédito sujeitas às regras vigentes na data de cada operação.</div>
 </footer>
 </div>
+
+<script>
+(function(){var h=document.querySelector('.mt-header'),b=h&&h.querySelector('.mt-toggle');if(!b)return;
+b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');});
+h.querySelectorAll('.mt-menu a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');b.setAttribute('aria-expanded','false');});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&h.classList.contains('open')){h.classList.remove('open');b.setAttribute('aria-expanded','false');b.focus();}});})();
+</script>
+
 </body>
 </html>
